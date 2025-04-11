@@ -1406,6 +1406,16 @@ input[type="submit"]:hover {
   transform: scale(1.05);
 }
 
+.block-title #about-me {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+.block-title #about-me:hover {
+  transform: scale(1.05);
+}
+
 /* -----------------------------------------------
    Rodapé
 ----------------------------------------------- */

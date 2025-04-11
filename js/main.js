@@ -152,23 +152,22 @@
         handleScrollAnimation();
 
         // Efeito parallax leve no título do bloco (opcional)
-        document.querySelectorAll('.block-title h3').forEach(h3 => {
-            h3.addEventListener('mousemove', (e) => {
-                const rect = h3.getBoundingClientRect();
+        document.querySelectorAll('.block-title h1, .block-title h3').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
                 const relX = e.clientX - (rect.left + rect.width / 2);
                 const relY = e.clientY - (rect.top + rect.height / 2);
                 const moveX = relX * 0.1;
                 const moveY = relY * 0.2;
-                h3.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
-                h3.style.transition = 'transform 0.1s ease-out';
+                el.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+                el.style.transition = 'transform 0.1s ease-out';
             });
-            h3.addEventListener('mouseleave', () => {
-                h3.style.transform = 'translate(0, 0) scale(1)';
-                h3.style.transition = 'transform 0.3s ease-out';
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0) scale(1)';
+                el.style.transition = 'transform 0.3s ease-out';
             });
         });
     });
-
 })(jQuery);
 
 /* 
