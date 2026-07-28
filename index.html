@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CB Manutenções — Reformas, Elétrica, Hidráulica e SOS do Lar | Campinas e Região</title>
-<meta name="description" content="Manutenção residencial completa na Região Metropolitana de Campinas: SOS do lar, reformas, automação elétrica, hidráulica, alvenaria e pinturas. Orçamento rápido pelo WhatsApp.">
+<title>CB Manutenções — Reformas, Elétrica, Hidráulica e Atendimento Express | Campinas e Região</title>
+<meta name="description" content="Manutenção residencial completa na Região Metropolitana de Campinas: atendimento express, reformas, automação elétrica, hidráulica, alvenaria e pinturas. Orçamento rápido pelo WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -54,6 +54,13 @@ h2{font-size:clamp(1.9rem,4.2vw,2.9rem);margin:.5rem 0 1rem}
 .topbar strong{color:#FF7A7E}
 .topbar a{font-weight:700;display:inline-flex;align-items:center;gap:6px}
 .topbar a:hover{color:#FF7A7E}
+.topbar-phone{gap:9px;padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);transition:background .2s,border-color .2s}
+.topbar-phone:hover{color:#fff;background:rgba(37,214,102,.14);border-color:var(--wa)}
+.topbar-phone svg{flex:none;color:var(--wa)}
+.topbar-phone .label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8E8A86;transition:color .2s}
+.topbar-phone:hover .label{color:var(--wa)}
+.topbar-phone .num{font-size:.88rem;font-weight:600;letter-spacing:.045em;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+@media(max-width:560px){.topbar-phone .label{display:none}.topbar-phone{padding:5px 12px}}
 
 /* ===== Header ===== */
 header.site{position:sticky;top:0;z-index:50;background:rgba(250,249,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--concrete-dark)}
@@ -93,19 +100,20 @@ header .btn{padding:10px 18px;font-size:.9rem}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
 .hero .trust{margin-top:26px;font-size:.85rem;color:#A9A5A0;display:flex;gap:18px;flex-wrap:wrap}
 .hero .trust b{color:#fff}
-.sos-card{position:relative;background:#fff;color:var(--ink);border-radius:12px;padding:0;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(1.5deg)}
-.sos-card .tape{height:12px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--ink) 16px 32px)}
-.sos-card .in{padding:28px}
-.sos-card h3{font-size:1.5rem;color:var(--red)}
-.sos-card p{font-size:.94rem;color:var(--grey);margin:10px 0 18px}
-.sos-card .phones{display:grid;gap:10px}
-.phone-line{display:flex;align-items:center;gap:12px;background:var(--concrete);border-radius:8px;padding:12px 16px;font-weight:800;font-size:1.08rem;transition:background .2s,transform .15s}
-.phone-line:hover{background:#E2F7EA;transform:translateX(4px)}
-.phone-line small{display:block;font-weight:600;font-size:.72rem;color:var(--grey);letter-spacing:.06em;text-transform:uppercase}
+.urgent-card{position:relative;background:#fff;color:var(--ink);border-radius:12px;padding:0;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(1.5deg)}
+.urgent-card .tape{height:12px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--ink) 16px 32px)}
+.urgent-card .in{padding:28px}
+.urgent-card h3{font-size:1.5rem;color:var(--red)}
+.urgent-card p{font-size:.94rem;color:var(--grey);margin:10px 0 18px}
+.urgent-card .phones{display:grid;gap:0;background:var(--concrete);border-radius:8px;overflow:hidden}
+.phone-line{display:flex;align-items:center;gap:12px;padding:12px 16px;font-weight:800;font-size:1.08rem;font-variant-numeric:tabular-nums;transition:background .2s}
+.phone-line+.phone-line{border-top:1px solid var(--concrete-dark)}
+.phone-line:hover{background:#E2F7EA}
+.phone-line small{display:block;font-weight:600;font-size:.72rem;color:var(--grey);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:normal}
 .wa-badge{width:38px;height:38px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex:none}
 @media(max-width:900px){
   .hero .wrap{grid-template-columns:1fr;padding:64px 24px 80px}
-  .sos-card{transform:none;max-width:460px}
+  .urgent-card{transform:none;max-width:460px}
   .hero .checks{grid-template-columns:1fr}
 }
 
@@ -181,10 +189,11 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
 <!-- Topbar -->
 <div class="topbar">
   <div class="wrap">
-    <div>⚡ <strong>SOS do Lar:</strong> atendimento express na Região Metropolitana de Campinas</div>
-    <a href="https://wa.me/5519981208916?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
-      (19) 98120-8916
+    <div>⚡ <strong>Atendimento Express:</strong> urgências na Região Metropolitana de Campinas</div>
+    <a class="topbar-phone" href="https://wa.me/5511976359311?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
+      <span class="label">WhatsApp</span>
+      <span class="num">(11)&nbsp;97635-9311</span>
     </a>
   </div>
 </div>
@@ -227,16 +236,16 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow" style="color:#FF7A7E">Manutenção residencial completa</span>
-      <h1>Sua casa com problema?<br><span class="red">A gente resolve hoje.</span></h1>
+      <h1>Seu imóvel com problema?<br><span class="red">A gente resolve hoje.</span></h1>
       <p class="lead">Do reparo urgente à reforma completa: elétrica, hidráulica, alvenaria e pintura com quem chega rápido, faz certo e entrega limpo.</p>
       <div class="checks">
-        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E22228"/><path d="M7 12.5l3.2 3L17 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Orçamento sem compromisso</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E22228"/><path d="M7 12.5l3.2 3L17 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Orçamentos personalizados</span>
         <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E22228"/><path d="M7 12.5l3.2 3L17 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Serviços express personalizados</span>
         <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E22228"/><path d="M7 12.5l3.2 3L17 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Material e mão de obra de confiança</span>
         <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#E22228"/><path d="M7 12.5l3.2 3L17 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Atendimento em toda a RMC</span>
       </div>
       <div class="ctas">
-        <a class="btn btn-wa" href="https://wa.me/5519981208916?text=Ol%C3%A1!%20Preciso%20de%20um%20servi%C3%A7o%20na%20minha%20casa.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" target="_blank" rel="noopener">
+        <a class="btn btn-wa" href="https://wa.me/5519981208916?text=Ol%C3%A1!%20Preciso%20de%20um%20servi%C3%A7o%20no%20meu%20im%C3%B3vel.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
           Orçamento pelo WhatsApp
         </a>
@@ -248,19 +257,19 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
       </div>
     </div>
     <div class="reveal">
-      <div class="sos-card">
+      <div class="urgent-card">
         <div class="tape"></div>
         <div class="in">
-          <h3>🚨 SOS do Lar</h3>
+          <h3>🚨 Atendimento Express</h3>
           <p>Emergência elétrica ou hidráulica? Chame agora — atendimento express na região de Campinas.</p>
           <div class="phones">
-            <a class="phone-line" href="https://wa.me/5519981208916?text=%F0%9F%9A%A8%20SOS!%20Preciso%20de%20atendimento%20urgente." target="_blank" rel="noopener">
+            <a class="phone-line" href="https://wa.me/5511976359311?text=%F0%9F%9A%A8%20Preciso%20de%20atendimento%20urgente." target="_blank" rel="noopener">
               <span class="wa-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg></span>
-              <span><small>WhatsApp · Campinas</small>(19) 98120-8916</span>
+              <span><small>WhatsApp · Principal</small>(11)&nbsp;97635-9311</span>
             </a>
-            <a class="phone-line" href="https://wa.me/5511976359311?text=%F0%9F%9A%A8%20SOS!%20Preciso%20de%20atendimento%20urgente." target="_blank" rel="noopener">
+            <a class="phone-line" href="https://wa.me/5519981208916?text=%F0%9F%9A%A8%20Preciso%20de%20atendimento%20urgente." target="_blank" rel="noopener">
               <span class="wa-badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg></span>
-              <span><small>WhatsApp · alternativo</small>(11) 97635-9311</span>
+              <span><small>WhatsApp · Campinas</small>(19)&nbsp;98120-8916</span>
             </a>
           </div>
         </div>
@@ -275,20 +284,20 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">O que fazemos</span>
-      <h2>Um só contato para <span style="color:var(--red)">tudo da sua casa</span></h2>
+      <h2>Um só contato para <span style="color:var(--red)">tudo do seu imóvel</span></h2>
       <p style="max-width:40rem;color:var(--grey)">Pequenos reparos ou obra completa: você chama, a gente avalia, orça e executa. Sem enrolação, sem sumir no meio do serviço.</p>
     </div>
     <div class="svc-grid">
       <div class="svc dark reveal">
-        <span class="tag">Express</span>
+        <span class="tag">Urgente</span>
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></div>
-        <h3>SOS do Lar</h3>
+        <h3>Atendimento Express</h3>
         <p>Vazou, apagou, entupiu ou quebrou? Reparos urgentes com atendimento express e prioridade real.</p>
       </div>
       <div class="svc reveal">
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#fff"/></svg></div>
         <h3>Elétrica &amp; Automação</h3>
-        <p>Instalações, quadros, tomadas, iluminação e automação elétrica para deixar sua casa moderna e segura.</p>
+        <p>Instalações, quadros, tomadas, iluminação e automação elétrica para deixar seu imóvel moderno e seguro.</p>
       </div>
       <div class="svc reveal">
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 4-6 7.2-6 11a6 6 0 0 0 12 0c0-3.8-3-7-6-11Z" fill="#fff"/></svg></div>
@@ -308,7 +317,7 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
       <div class="svc reveal">
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 11 12 3l9 8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="14" width="4" height="6" fill="#fff"/></svg></div>
         <h3>Reformas Completas</h3>
-        <p>Do banheiro à casa inteira: planejamento, execução e entrega no prazo combinado, com você no controle.</p>
+        <p>Do banheiro ao imóvel inteiro: planejamento, execução e entrega no prazo combinado, com você no controle.</p>
       </div>
     </div>
   </div>
@@ -356,7 +365,7 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--red)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Sumaré</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--red)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Paulínia</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--red)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Indaiatuba</li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--red)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Americana</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--red)"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Demais localidades</li>
       </ul>
       <p class="note">Sua cidade não está na lista? Chame no WhatsApp e consulte a disponibilidade — sempre que possível, a gente vai até você.</p>
     </div>
@@ -380,11 +389,14 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
       <h2>Peça seu orçamento agora — é grátis</h2>
       <p>Descreva o serviço, mande fotos e receba uma resposta rápida. Atendimento direto com quem executa — sem intermediário.</p>
       <div class="ctas">
-        <a class="btn btn-wa" href="https://wa.me/5519981208916?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20com%20a%20CB%20Manuten%C3%A7%C3%B5es." target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
-          (19) 98120-8916
+        <a class="btn btn-wa" href="https://wa.me/5511976359311?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20com%20a%20CB%20Manuten%C3%A7%C3%B5es." target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
+          (11)&nbsp;97635-9311
         </a>
-        <a class="btn btn-ghost" href="https://wa.me/5511976359311?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20com%20a%20CB%20Manuten%C3%A7%C3%B5es." target="_blank" rel="noopener">(11) 97635-9311</a>
+        <a class="btn btn-wa" href="https://wa.me/5519981208916?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20com%20a%20CB%20Manuten%C3%A7%C3%B5es." target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.1c.2-.2.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.6-.1 1.2Z"/></svg>
+          (19)&nbsp;98120-8916
+        </a>
       </div>
     </div>
   </div>
@@ -400,7 +412,7 @@ footer .base{border-top:1px solid #2C2C2C;margin-top:44px;padding-top:22px;text-
     <div>
       <h4>Serviços</h4>
       <ul>
-        <li><a href="#servicos">SOS do Lar</a></li>
+        <li><a href="#servicos">Atendimento Express</a></li>
         <li><a href="#servicos">Elétrica &amp; Automação</a></li>
         <li><a href="#servicos">Hidráulica</a></li>
         <li><a href="#servicos">Alvenaria</a></li>
